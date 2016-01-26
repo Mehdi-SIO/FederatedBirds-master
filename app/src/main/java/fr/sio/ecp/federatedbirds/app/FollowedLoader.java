@@ -18,6 +18,8 @@ public class FollowedLoader extends UsersLoader {
     @Override
     protected List<User> getUsers(Long userId) throws IOException {
         return ApiClient.getInstance(getContext()).getUserFollowed(userId);
+
+        //test commit and push
     }
 
 }
