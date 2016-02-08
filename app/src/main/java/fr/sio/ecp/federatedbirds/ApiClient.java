@@ -23,7 +23,11 @@ import fr.sio.ecp.federatedbirds.model.User;
 
 public class ApiClient {
 
-    private static final String API_BASE = "http://10.0.2.2:9000/";
+    //For a local API
+    //private static final String API_BASE = "http://10.0.2.2:9000/";
+
+    //Connexion to Erwan's API
+    private static final String API_BASE = "https://federatedbirds.appspot.com/";
 
     private static ApiClient mInstance;
 
