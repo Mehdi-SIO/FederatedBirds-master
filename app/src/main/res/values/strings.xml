@@ -13,6 +13,7 @@
     <string name="logout">Déconnexion</string>
     <string name="login_progress">Connexion en cours...</string>
     <string name="followed">Abonnements</string>
+    <string name="followers">Abonnés</string>
     <string name="new_message">Nouveau message</string>
     <string name="post">Poster</string>
     <string name="empty_message_error">Message vide non posté.</string>
