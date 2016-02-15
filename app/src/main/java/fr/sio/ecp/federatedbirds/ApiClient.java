@@ -106,4 +106,12 @@ public class ApiClient {
         return post("messages", message, Message.class);
     }
 
+    public String signUp(String login, String password, String email) throws IOException {
+        JsonObject body = new JsonObject();
+        body.addProperty("login",login);
+        body.addProperty("password",password);
+        body.addProperty("email",email);
+        return post("users",body,String.class);
+    }
+
 }

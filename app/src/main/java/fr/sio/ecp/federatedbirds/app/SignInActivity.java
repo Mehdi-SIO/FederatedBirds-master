@@ -1,22 +1,19 @@
 package fr.sio.ecp.federatedbirds.app;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 import fr.sio.ecp.federatedbirds.R;
 import fr.sio.ecp.federatedbirds.utils.ValidationUtils;
 
-public class LoginActivity extends AppCompatActivity {
-
-
+public class SignInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signin);
 
         findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
 
     private void login() {
 

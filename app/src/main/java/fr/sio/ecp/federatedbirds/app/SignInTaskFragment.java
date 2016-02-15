@@ -1,7 +1,6 @@
 package fr.sio.ecp.federatedbirds.app;
 
 import android.app.Dialog;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,17 +19,15 @@ import fr.sio.ecp.federatedbirds.R;
 import fr.sio.ecp.federatedbirds.auth.TokenManager;
 
 
-public class LoginTaskFragment extends DialogFragment {
+public class SignInTaskFragment extends DialogFragment {
 
-    protected static final String ARG_LOGIN = "login";
-    protected static final String ARG_PASSWORD = "password";
-    protected static final String ARG_EMAIL = "email";
+    private static final String ARG_LOGIN = "login";
+    private static final String ARG_PASSWORD = "password";
 
-    public void setArguments(String login, String password, String email) {
+    public void setArguments(String login, String password) {
         Bundle args = new Bundle();
-        args.putString(LoginTaskFragment.ARG_LOGIN, login);
-        args.putString(LoginTaskFragment.ARG_PASSWORD, password);
-        args.putString(LoginTaskFragment.ARG_EMAIL, email);
+        args.putString(SignInTaskFragment.ARG_LOGIN, login);
+        args.putString(SignInTaskFragment.ARG_PASSWORD, password);
         setArguments(args);
     }
 
@@ -38,9 +35,9 @@ public class LoginTaskFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        AsyncTaskCompat.executeParallel(
-                new LoginTaskFragment.LoginTask()
-        );
+    /*    AsyncTask<Object, Object, Object> objectObjectObjectAsyncTask = AsyncTaskCompat.executeParallel(
+                new SignInTaskFragment().LoginTask()
+        );*/
     }
 
     @NonNull
@@ -52,13 +49,7 @@ public class LoginTaskFragment extends DialogFragment {
         return dialog;
     }
 
-    public void show(FragmentManager fragmentManager, String login) {
-    }
-
-    public void setArguments(String login, String password) {
-    }
-
-    private class LoginTask extends AsyncTask<Void, Void, String> {
+    protected class LoginTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
@@ -79,7 +70,7 @@ public class LoginTaskFragment extends DialogFragment {
                 getActivity().finish();
                 startActivity(MainActivity.newIntent(getContext()));
             } else {
-                Toast.makeText(getContext(), "Connexion failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.login_failed, Toast.LENGTH_SHORT).show();
             }
             dismiss();
         }
